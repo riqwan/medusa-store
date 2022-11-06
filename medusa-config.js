@@ -56,8 +56,7 @@ const plugins = [
 
 module.exports = {
   projectConfig: {
-    // redis_url: REDIS_URL,
-    // For more production-like environment install PostgresQL
+    redis_url: REDIS_URL,
     database_url: DATABASE_URL,
     database_type: "postgres",
     store_cors: STORE_CORS,
