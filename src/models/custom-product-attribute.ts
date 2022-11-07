@@ -1,17 +1,12 @@
 import { BeforeInsert, Column, Entity, Index, ManyToOne, JoinColumn } from "typeorm";
 import { BaseEntity} from "@medusajs/medusa";
 import { generateEntityId } from "@medusajs/medusa/dist/utils"
-import { Product } from "@medusajs/medusa/dist/models/product"
 
 @Entity()
 export class CustomProductAttribute extends BaseEntity {
   @Index()
   @Column()
   product_id: string
-
-  @ManyToOne(() => Product, (product) => product.customProductAttributes, { eager: true })
-  @JoinColumn({ name: "product_id" })
-  product: Product
 
   @Column({ type: "varchar" })
   key: string;
