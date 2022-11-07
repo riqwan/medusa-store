@@ -22,5 +22,20 @@ export default () => {
     }
   )
 
+  router.get(
+    "/admin/:productId/custom-product-attributes/:id",
+    async (req: Request, res: Response) : Promise<CustomProductAttributesResponse> => {
+      const { scope, params } = req
+      const { productId, id } = params
+      const customProductAttributeService = scope.resolve("customProductAttributeService")
+
+      const customProductAttribute = await customProductAttributeService.retrieve(productId, id)
+
+      res.json({
+        data: customProductAttribute
+      })
+    }
+  )
+
   return router
 }

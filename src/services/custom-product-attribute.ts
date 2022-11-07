@@ -25,6 +25,18 @@ class CustomProductAttributeService extends BaseService {
       }
     })
   }
+
+  async retrieve(productId: string, id: string): Promise<CustomProductAttribute> {
+    const customProductAttributeRepository: CustomProductAttributeRepository =
+      this.manager_.getCustomRepository(this.customProductAttributeRepository_)
+
+    return await customProductAttributeRepository.findOne({
+      where: {
+        id,
+        product_id: productId
+      }
+    })
+  }
 }
 
 export default CustomProductAttributeService
