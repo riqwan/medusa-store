@@ -3,16 +3,16 @@ import { BaseEntity} from "@medusajs/medusa";
 import { generateEntityId } from "@medusajs/medusa/dist/utils"
 
 @Entity()
-export class CustomProductAttribute extends BaseEntity {
+export default class CustomProductAttribute extends BaseEntity {
   @Index()
   @Column()
-  product_id: string
+  product_id!: string
 
   @Column({ type: "varchar" })
-  key: string;
+  key!: string;
 
   @Column({ type: "varchar" })
-  value: string;
+  value!: string;
 
   @BeforeInsert()
   private beforeInsert(): void {

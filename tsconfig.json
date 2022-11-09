@@ -1,5 +1,16 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true
-  }
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "rootDir": "src",
+    "allowJs": false,
+    "checkJs": false,
+    "outDir": "built",
+    "strict": true,
+    "target": "es2016",
+    "lib": ["es6"],
+    "module": "commonjs",
+    "isolatedModules": true
+  },
+  "include": ["src"]
 }
