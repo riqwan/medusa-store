@@ -5,12 +5,15 @@
     "rootDir": "src",
     "allowJs": false,
     "checkJs": false,
-    "outDir": "built",
+    "outDir": "dist",
     "strict": true,
-    "target": "es2016",
-    "lib": ["es6"],
+    "target": "es5",
+    "lib": ["es5", "es6", "dom"],
     "module": "commonjs",
-    "isolatedModules": true
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
   },
-  "include": ["src"]
+  "include": ["./src"]
 }
