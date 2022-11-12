@@ -1,8 +1,8 @@
 import { BaseService } from "medusa-interfaces";
 import { EntityManager } from "typeorm"
 
-import CustomProductAttributeRepository from '../repositories/custom-product-attribute'
-import CustomProductAttribute from '../models/custom-product-attribute'
+import { CustomProductAttributeRepository } from '../repositories/custom-product-attribute'
+import { CustomProductAttribute } from '../models/custom-product-attribute'
 
 type ConstructorOptions = {
   manager: EntityManager,

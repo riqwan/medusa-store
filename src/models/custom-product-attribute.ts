@@ -3,7 +3,7 @@ import { BaseEntity} from "@medusajs/medusa";
 import { generateEntityId } from "@medusajs/medusa/dist/utils"
 
 @Entity()
-export default class CustomProductAttribute extends BaseEntity {
+export class CustomProductAttribute extends BaseEntity {
   @Index()
   @Column()
   product_id!: string
