@@ -3,7 +3,7 @@
 import { CustomProductAttribute } from "../../models/custom-product-attribute"
 import CustomProductAttributeService from "../../services/custom-product-attribute"
 import { CustomProductAttributeRepository } from "../../repositories/custom-product-attribute"
-import { CustomProductAttributeServiceOptions } from "../../services/types"
+import { CustomProductAttributeServiceOptions } from "../../types/services/custom-product-attribute"
 import { testDatabase } from '../../test-helpers/test-database'
 
 describe('Model: CustomProductAttribute', () => {

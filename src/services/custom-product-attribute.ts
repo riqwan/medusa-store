@@ -2,7 +2,7 @@ import { BaseService } from "medusa-interfaces";
 
 import { CustomProductAttributeRepository } from '../repositories/custom-product-attribute'
 import { CustomProductAttribute } from '../models/custom-product-attribute'
-import { CustomProductAttributeServiceOptions } from './types'
+import { CustomProductAttributeServiceOptions } from '../types/services/custom-product-attribute'
 
 class CustomProductAttributeService extends BaseService {
   protected customProductAttributeRepository_: CustomProductAttributeRepository
