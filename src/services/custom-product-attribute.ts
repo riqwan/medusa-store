@@ -1,29 +1,20 @@
 import { BaseService } from "medusa-interfaces";
-import { EntityManager } from "typeorm"
 
 import { CustomProductAttributeRepository } from '../repositories/custom-product-attribute'
 import { CustomProductAttribute } from '../models/custom-product-attribute'
-
-type ConstructorOptions = {
-  manager: EntityManager,
-  customProductAttributeRepository: CustomProductAttributeRepository,
-}
+import { CustomProductAttributeServiceOptions } from './types'
 
 class CustomProductAttributeService extends BaseService {
   protected customProductAttributeRepository_: CustomProductAttributeRepository
 
-  constructor(options: ConstructorOptions) {
+  constructor(options: CustomProductAttributeServiceOptions) {
     super()
 
     this.customProductAttributeRepository_ = options.customProductAttributeRepository
-    this.manager_ = options.manager
   }
 
   async list(productId: string): Promise<CustomProductAttribute[]> {
-    const customProductAttributeRepository: CustomProductAttributeRepository =
-      this.manager_.getCustomRepository(this.customProductAttributeRepository_)
-
-    return await customProductAttributeRepository.find({
+    return await this.customProductAttributeRepository_.find({
       where: {
         product_id: productId
       }
@@ -31,10 +22,7 @@ class CustomProductAttributeService extends BaseService {
   }
 
   async retrieve(productId: string, id: string): Promise<CustomProductAttribute | undefined> {
-    const customProductAttributeRepository: CustomProductAttributeRepository =
-      this.manager_.getCustomRepository(this.customProductAttributeRepository_)
-
-    return await customProductAttributeRepository.findOne({
+    return await this.customProductAttributeRepository_.findOne({
       where: {
         id,
         product_id: productId
