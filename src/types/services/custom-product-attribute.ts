@@ -3,3 +3,8 @@ import { CustomProductAttributeRepository } from "../../repositories/custom-prod
 export type CustomProductAttributeServiceOptions = {
   customProductAttributeRepository: CustomProductAttributeRepository,
 }
+
+export type CustomProductAttributeCreateParams = {
+  key: string,
+  value: string,
+}

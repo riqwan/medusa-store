@@ -2,7 +2,7 @@ import { BaseService } from "medusa-interfaces";
 
 import { CustomProductAttributeRepository } from '../repositories/custom-product-attribute'
 import { CustomProductAttribute } from '../models/custom-product-attribute'
-import { CustomProductAttributeServiceOptions } from '../types/services/custom-product-attribute'
+import { CustomProductAttributeServiceOptions, CustomProductAttributeCreateParams } from '../types/services/custom-product-attribute'
 
 class CustomProductAttributeService extends BaseService {
   protected customProductAttributeRepository_: CustomProductAttributeRepository
@@ -28,6 +28,16 @@ class CustomProductAttributeService extends BaseService {
         product_id: productId
       }
     })
+  }
+
+  async create(productId: string, params: CustomProductAttributeCreateParams): Promise<CustomProductAttribute | undefined> {
+    const customProductAttributeEntity = await this.customProductAttributeRepository_.create({
+        key: params.key,
+        value: params.value,
+        product_id: productId
+      })
+
+    return await this.customProductAttributeRepository_.save(customProductAttributeEntity)
   }
 }
 
